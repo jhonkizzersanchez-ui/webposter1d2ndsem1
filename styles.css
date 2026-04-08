@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: rgb(66, 64, 64);
+}
+
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #7804c5, #220d2c, #a531db);
+  z-index: -3;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image:
+    linear-gradient(rgba(12, 240, 221, 0.116) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(178,102,255,0.15) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveGrid 8s linear infinite;
+}
+
+@keyframes moveGrid {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-50px, -50px);
+  }
+}
+
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0.2), rgba(24, 23, 23, 0.9));
+  z-index: -2;
+}
+
+
+.container {
+  padding: 50px 70px;
+  border-radius: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px #7e48b4, 0 0 30px #984ee2;
+  }
+  50% {
+    box-shadow: 0 0 30px #7549a1, 0 0 80px #442563;
+  }
+  100% {
+    box-shadow: 0 0 10px #b266ff, 0 0 30px #b266ff;
+  }
+}
+
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 70px;
+  letter-spacing: 4px;
+  color: white;
+  text-shadow:
+    0 0 10px #b266ff,
+    0 0 20px #b266ff,
+    0 0 40px #b266ff;
+  margin-bottom: 15px;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 4px;
+  margin: 10px auto;
+  background: linear-gradient(to right, #b266ff, #6a00ff);
+  border-radius: 5px;
+}
+
+
+.subtitle {
+  font-size: 18px;
+  color: #7dbbe4;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+
+.author {
+  font-size: 14px;
+  color: #65696d;
+}
